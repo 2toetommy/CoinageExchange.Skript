@@ -2,7 +2,7 @@ variables:
 	{total}= 0
 
 on rightclick on sign:
-	player has permission "skript.currency.admin"
+	player has permission "skript.currency.user"
 	set {_player} to player
 	
 	if line 1 of clicked block is "[§cExchange§r]":
@@ -15,10 +15,15 @@ on rightclick on sign:
 			
 		else if line 2 of clicked block is "[§aSplit§r]":
 		
-			line 3 of clicked block is "ten-bit->one-bit":
+			if line 3 of clicked block is "ten-bit->one-bit":
 			
 				execute player command "/splitcoins %(_player}% iron1bit=1" 
 				message "§eChange has been made, try not to spend it all in one place !"
+			
+			else if line 3 of clicked block is "D1m->D10k":
+				
+				execute player command "/splitcoins "%(_player)%" diamond10000bit=1"
+				message "$eChange has been made, try not to spend it all in one place !"
 
 		
 on sign change:
@@ -42,6 +47,14 @@ on sign change:
 				message "§4Exchange sign created"
 				
 			else if line 3 of block is "1x10":
+			
 				set line 3 to "ten-bit->one-bit"
 				message "§eChange sign created !"
 				
+			else if line 3 of block is "d1mxd10k":
+				set line 3 to "D1m->D10k"
+				
+				
+				
+				
+	
