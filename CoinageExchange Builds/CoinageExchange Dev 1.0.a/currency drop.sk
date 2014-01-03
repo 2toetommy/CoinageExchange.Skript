@@ -1,0 +1,35 @@
+		
+on death of zombie:
+	chance of 12%:
+		execute console command "/givecurrency %attacker% 1"
+		clear drops
+		add 1 coal to drops
+		
+		
+on death of skeleton:
+	chance of 12%:
+		execute console command "/givecurrency %attacker% 1"
+		clear drops
+		add 1 bow to drops
+		
+		
+on death of spider:
+	chance of 20%:
+		execute console command "/givecurrency %attacker% 1"
+		clear drops
+		add 1 string to drops
+		
+		
+on death of creeper:
+	chance of 20%:
+		execute console command "/givecurrency %attacker% 1"
+		clear drops
+		add 1 sulphur to drops
+		
+
+on death of enderman:
+	chance of 50%:
+		execute console command "/givecurrency %attacker% 1"
+		clear drops
+		add 1 ender pearl to drops
+		

@@ -1,0 +1,47 @@
+variables:
+	{total}= 0
+
+on rightclick on sign:
+	player has permission "skript.currency.admin"
+	set {_player} to player
+	
+	if line 1 of clicked block is "[§cExchange§r]":
+	
+		if line 2 of clicked block is "[§aCombine§r]":
+		
+			execute player command "/combinecoins %player%"
+			add 1 to {total}
+			set line 3 to "[§n§5%{total}%§r§r]"
+			
+		else if line 2 of clicked block is "[§aSplit§r]":
+		
+			line 3 of clicked block is "ten-bit->one-bit":
+			
+				execute player command "/splitcoins %(_player}% iron1bit=1" 
+				message "§eChange has been made, try not to spend it all in one place !"
+
+		
+on sign change:
+	player has permission "skript.currency.admin"
+	
+	if line 1 of block is "[Ex]":
+	
+		set line 1 to "[§cExchange§r]"
+		
+		if line 2 of block is "Combo":
+		
+			set line 2 to "[§aCombine§r]"
+			
+		else if line 2 of block is "Split":
+		
+			set line 2 to "[§aSplit§r]"
+			
+			if line 3 of block is "":
+			
+				set line 3 to "[§n§5%{total}%§r§r]" 
+				message "§4Exchange sign created"
+				
+			else if line 3 of block is "1x10":
+				set line 3 to "ten-bit->one-bit"
+				message "§eChange sign created !"
+				
